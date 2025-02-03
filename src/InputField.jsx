@@ -5,7 +5,10 @@ const InputField = ({ formik, label, name, type = "text" }) => {
       <input
         name={name}
         onChange={formik.handleChange}
-        className={`form-control ${formik.errors[name] && "is-invalid"}`}
+        onBlur={formik.handleBlur}
+        className={`form-control ${
+          formik.errors[name] && formik.touched[name] && "is-invalid"
+        }`}
         type={type}
       />
       <label className="feedback">{formik.errors[name]}</label>

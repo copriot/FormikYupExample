@@ -12,6 +12,8 @@ const App = () => {
     initialValues: {
       email: "",
       age: "",
+      password: "",
+      passwordConfirm: "",
     },
 
     //formiğin hata yönetimi yapması için kuralları söyle
@@ -22,15 +24,15 @@ const App = () => {
       alert("Form gönderildi:" + JSON.stringify(values));
     },
   });
-
+  console.log(formik.values);
   return (
     <div className="vh-100 vw-100">
       <div className="container">
         <h2 className="text-center">FORMIK</h2>
 
         <form onSubmit={formik.handleSubmit} className="d-flex flex-column gap-4 mt-5">
-          {inputs.map((props) => (
-            <InputField formik={formik} {...props} />
+          {inputs.map((props, index) => (
+            <InputField key={index} formik={formik} {...props} />
           ))}
 
           <button type="submit" className="my-5">

@@ -65,7 +65,13 @@ button:focus-visible {
   }
 }
 
+/* normalde hata mesajını göstermiyoruz */
 .feedback {
   color: red;
   margin-top: 5px;
+  visibility: hidden;
+}
+/* inputa is-invalid classı eklendiyse hata mesajını göster */
+.is-invalid + .feedback {
+  visibility: visible;
 }
